@@ -5,11 +5,14 @@ on:
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
-    container:
-      image: arm64v8/ubuntu:latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Prepare
-        run: |
-          apt-get -y install git nano wget curl bc jq make cmake ninja python3 python-pip
+        uses: pguyot/arm-runner-action@v2
+        with:
+          commands: |
+            apt-get -y install git nano wget curl bc jq make cmake ninja python3 python-pip golang
+            pip install request
+            git clone https://github.com/lzhiyong/android-sdk-tools && cd android-sdk-tools
+            python get_source.py --tags platform-tools-35.0.2
