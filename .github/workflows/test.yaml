@@ -12,7 +12,7 @@ jobs:
         uses: pguyot/arm-runner-action@v2
         with:
           commands: |
-            apt-get -y install git nano wget curl bc jq make cmake ninja python3 python-pip golang
+            apt-get -y install git nano wget curl bc jq make cmake ninja python3 python3-pip golang
             pip install request
             git clone https://github.com/lzhiyong/android-sdk-tools && cd android-sdk-tools
             python get_source.py --tags platform-tools-35.0.2
