@@ -16,6 +16,6 @@ jobs:
           python3 get_source.py --tags platform-tools-35.0.2
       - name: make
         run: |
-          cd src/protobuf && mkdir build && cd build
+          cd android-sdk-tools/src/protobuf && mkdir build && cd build
           cmake -GNinja -Dprotobuf_BUILD_TESTS=OFF ..
           ninja -j$(nproc --all)
